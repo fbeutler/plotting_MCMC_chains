@@ -21,7 +21,7 @@ def main():
     x1, x2, x3 = np.random.multivariate_normal(mean, cov, 50000).T
     s1 = np.c_[x1, x2, x3]
 
-    mean = [0.2, 0.5, 200.]
+    mean = [0.2, 0.5, 6.]
     cov = [[0.7, 0.3, 0.1], [0.3, 10, 0.25], [0.1, 0.25, 7]]
     x1, x2, x3 = np.random.multivariate_normal(mean, cov, 50000).T
     s2 = np.c_[x1, x2, x3]
@@ -30,8 +30,8 @@ def main():
     samples1 = MCSamples(samples=s1, labels=names, label='sample1')
     samples2 = MCSamples(samples=s2, labels=names, label='sample2')
 
-    get_symmetric_constraints(samples1)
-    get_symmetric_constraints(samples2)
+    get_constraints(samples1)
+    get_constraints(samples2)
 
     g = plots.getSubplotPlotter()
     g.triangle_plot([samples1, samples2], filled=True)
