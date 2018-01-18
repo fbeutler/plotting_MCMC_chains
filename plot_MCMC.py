@@ -32,6 +32,9 @@ def main():
 
     get_constraints(samples1)
     get_constraints(samples2)
+    
+    print("cov(x_1, x_3) = ", samples2.cov(pars=[0,2]))
+    print("cov(x_1, x_2) = ", samples2.cov(pars=[0,1]))
 
     g = plots.getSubplotPlotter()
     g.triangle_plot([samples1, samples2], filled=True)
